@@ -35,7 +35,7 @@ async function verifyToken(token, params) {
 
     const claims = JSON.parse(verifiedToken.payload);
 
-    if(!claims.iss.endsWith(params.userPoolId)) throw Error('iss claim does not match user pool ID')
+    if(!claims.iss.endsWith(params.userPoolId)) throw Error('iss claim does not match user pool ID');
 
     const now = Math.floor(new Date() / 1000);
     if (now > claims.exp) throw Error('Token is expired');

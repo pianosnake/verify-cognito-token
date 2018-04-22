@@ -25,6 +25,6 @@ verify(token)
 
 ```
 
-The `userPoolId` parameter is available from Cognito/Manage Your User Pools/<Your Pool Name>/General Settings. 
+The `userPoolId` parameter is available from Cognito/Manage Your User Pools/Your-Pool-Name/General Settings. 
 
 The `appClientId` is an optional parameter used to match against the ID token's audience claim.

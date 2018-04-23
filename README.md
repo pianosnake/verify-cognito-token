@@ -8,19 +8,20 @@ Install with `npm install verify-cognito-token -S`
 
 Usage: 
 
-```
+```javascript
 const params = {
   region: '<your-aws-region>',
   userPoolId: '<your-user-pool-id>',
   appClientId: '<optional>'
 }
 
-const verify = require('verify-cognito-token')(params);
+const Verifier = require('verify-cognito-token');
+const verifier = new Verifier(params);
 
-verify(token)
+verifier.verify(token)
 .then(result =>{
-  //result will be `true` if token is valid or non-expired
-  //result will be `false` if token is invalid or expired
+  //result will be `true` if token is valid, non-expired, and has matching claims
+  //result will be `false` if token is invalid, expired or fails the claims check
 })
 
 ```

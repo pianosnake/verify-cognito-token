@@ -15,8 +15,16 @@ const params = {
   appClientId: '<optional>'
 }
 
+//example claims
+const claims = {
+  aud: '<your-app-client-id',
+  email_verified: true,
+  auth_time: time => time <= 1524588564,
+  'cognito:groups': groups => groups.includes('Admins')
+}
+
 const Verifier = require('verify-cognito-token');
-const verifier = new Verifier(params);
+const verifier = new Verifier(params, claims);
 
 verifier.verify(token)
 .then(result =>{
@@ -28,4 +36,4 @@ verifier.verify(token)
 
 The `userPoolId` parameter is available from Cognito/Manage Your User Pools/Your-Pool-Name/General Settings. 
 
-The `appClientId` is an optional parameter used to match against the ID token's audience claim.
+The `claims` parameter is an optional parameter used to match against the token's claims. Its keys are claim names and its values can be any of [string, number, boolean, function]. If the value is any of [string, number, boolean] it is checked for strict equality against the token's claim with a matching name. If it is a function, the function is run against the claim. Do not try to match against an object or an array; rather use a function to test for a particular property.

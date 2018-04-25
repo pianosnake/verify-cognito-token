@@ -74,11 +74,9 @@ class Verifier {
 
           if (typeof this.expectedClaims[claim] === 'object') {
             throw Error(`use a function with claim "${claim}"`);
-
           }
         }
       }
-
       return true;
     } catch (e) {
       console.log(e);

@@ -15,9 +15,9 @@ const params = {
   userPoolId: '<your-user-pool-id>'
 }
 
-//optional claims
+//optional claims examples
 const claims = {
-  aud: '<your-app-client-id',
+  aud: '<your-app-client-id>',
   email_verified: true,
   auth_time: time => time <= 1524588564,
   'cognito:groups': groups => groups.includes('Admins')

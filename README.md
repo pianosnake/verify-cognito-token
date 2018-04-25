@@ -6,7 +6,7 @@ This is a Node friendly refactor of AWS labs' [decode-verify-jwt](https://github
 
 Install with `npm install verify-cognito-token -S`
 
-Usage: 
+## Usage
 
 ```javascript
 const params = {
@@ -37,3 +37,7 @@ verifier.verify(token)
 The `userPoolId` parameter is available from Cognito/Manage Your User Pools/Your-Pool-Name/General Settings. 
 
 The `claims` parameter is an optional parameter used to match against the token's claims. Its keys are claim names and its values can be any of [string, number, boolean, function]. If the value is any of [string, number, boolean] it is checked for strict equality against the token's claim with a matching name. If it is a function, the function is run against the claim. Do not try to match against an object or an array; rather use a function to test for a particular property.
+
+## License
+
+MIT

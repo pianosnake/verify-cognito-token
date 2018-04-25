@@ -57,7 +57,6 @@ class Verifier {
       for (let claim in this.expectedClaims) {
 
         //check the expected strings using strict equality against the token's claims
-        console.log(claim + ' is ', claims[claim]);
         if (typeof this.expectedClaims[claim] !== 'undefined') {
           if (['string', 'boolean', 'number'].includes(typeof this.expectedClaims[claim])) {
             
@@ -68,7 +67,6 @@ class Verifier {
 
           //apply the expected claims that are Functions against the claims that were found on the token
           if (typeof this.expectedClaims[claim] === 'function') {
-            console.log('### gonna call this', this.expectedClaims[claim], ' against this', claims[claim]);
             if(!this.expectedClaims[claim].call(null, claims[claim])){
               throw Error(`expected claim "${claim}" does not match`);
             }

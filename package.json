@@ -1,6 +1,6 @@
 {
   "name": "verify-cognito-token",
-  "version": "1.2.1",
+  "version": "1.2.2",
   "description": "Verify JWT Tokens from AWS Cognito",
   "main": "index.js",
   "scripts": {

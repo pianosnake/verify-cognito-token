@@ -9,10 +9,11 @@ Install with `npm install verify-cognito-token -S`
 ## Usage
 
 ```javascript
-//required params
+// params
 const params = {
-  region: '<your-aws-region>',
-  userPoolId: '<your-user-pool-id>'
+  region: '<your-aws-region>',  // required
+  userPoolId: '<your-user-pool-id>', // required
+  debug: true // optional parameter to show console logs
 }
 
 //optional claims examples

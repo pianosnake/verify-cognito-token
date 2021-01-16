@@ -1,6 +1,6 @@
 {
   "name": "verify-cognito-token",
-  "version": "1.2.2",
+  "version": "1.2.3",
   "description": "Verify JWT Tokens from AWS Cognito",
   "main": "index.js",
   "scripts": {
@@ -15,5 +15,8 @@
   "dependencies": {
     "node-fetch": "^2.1.2",
     "node-jose": "^2.0.0"
+  },
+  "devDependencies": {
+    "eslint": "^7.17.0"
   }
 }

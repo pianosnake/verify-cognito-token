@@ -21,6 +21,11 @@ class Verifier {
   constructor(params, claims = {}) {
     if (!params.userPoolId) throw Error('userPoolId param is required');
     if (!params.region) throw Error('region param is required');
+    if (!params.debug) {
+      this.debug = true;
+    } else {
+      this.debug = params.debug
+    }
 
     this.userPoolId = params.userPoolId;
     this.region = params.region;
@@ -31,6 +36,8 @@ class Verifier {
 
   async verify(token) {
     try {
+      if (!token) throw Error('token undefined');
+
       const sections = token.split('.');
       const header = JSON.parse(jose.util.base64url.decode(sections[0]));
       const kid = header.kid;
@@ -52,7 +59,7 @@ class Verifier {
       const now = Math.floor(new Date() / 1000);
       if (now > claims.exp) throw Error('Token is expired');
 
-      if (this.expectedClaims.aud && claims.token_use === 'access') console.warn('WARNING! Access tokens do not have an aud claim');
+      if (this.expectedClaims.aud && claims.token_use === 'access' && this.debug) console.warn('WARNING! Access tokens do not have an aud claim');
 
       for (let claim in this.expectedClaims) {
 
@@ -79,7 +86,7 @@ class Verifier {
       }
       return true;
     } catch (e) {
-      console.log(e);
+      if (this.debug) console.log(e);
       return false;
     }
   }

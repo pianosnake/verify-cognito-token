@@ -21,7 +21,7 @@ class Verifier {
   constructor(params, claims = {}) {
     if (!params.userPoolId) throw Error('userPoolId param is required');
     if (!params.region) throw Error('region param is required');
-    if (!params.debug) {
+    if (params.debug === undefined) {
       this.debug = true;
     } else {
       this.debug = params.debug

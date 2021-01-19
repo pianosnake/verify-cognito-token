@@ -19,12 +19,11 @@ async function getPublicKeys() {
 
 class Verifier {
   constructor(params, claims = {}) {
+    this.debug = true;
     if (!params.userPoolId) throw Error('userPoolId param is required');
     if (!params.region) throw Error('region param is required');
-    if (params.debug === undefined) {
-      this.debug = true;
-    } else {
-      this.debug = params.debug
+    if (params.debug === false) {
+      this.debug = false;
     }
 
     this.userPoolId = params.userPoolId;

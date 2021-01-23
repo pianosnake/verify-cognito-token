@@ -83,7 +83,7 @@ class Verifier {
           }
         }
       }
-      return true;
+      return claims;
     } catch (e) {
       if (this.debug) console.log(e);
       return false;

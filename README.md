@@ -1,3 +1,5 @@
+# This lib has been archived! No longer maintained!
+
 # Verify Cognito Token
 
 Verify either the ID token or the access token provided by AWS Cognito.
